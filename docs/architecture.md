@@ -1,14 +1,4 @@
-# PsycheTrajectory
-
-**See the pattern. Hear the person.**
-
-PsycheTrajectory explores how people and psychologists might build shared context about changes between sessions. The repository contains an interactive concept simulator and a separate experimental Python research pipeline for exploring physiological trajectories.
-
-The central design question is not simply whether signals changed, but whether an interpretation fits the person's experience. Try **Signal without meaning** to see a routine shift corrected by context, or **Flat physiology, hard week** to see how passive signals can miss a person's own report.
-
-> **Research prototype:** The simulator uses illustrative scenarios, and the backend's included data is synthetic. Neither is a clinical tool or evidence of clinical validity. Outputs are not diagnoses, and must not guide care.
-
-## Architecture map
+# Architecture Map
 
 ```mermaid
 flowchart TD
@@ -102,61 +92,3 @@ flowchart TD
   class node_backend_cli,node_splits,node_pipeline,node_diagnostics toneRose
   class node_person toneIndigo
 ```
-
-## Try the simulator
-
-Requirements: Node.js `>=22.13.0`.
-
-```sh
-npm install
-npm run dev
-```
-
-Then open the local app in the browser and explore the simulator scenarios and narrative walkthrough.
-
-## Backend usage
-
-The backend is intended for generating and testing the research pipeline. The project includes a CLI workflow for synthetic data generation, validation, feature extraction, model training, and evaluation.
-
-See `backend/README.md` for the full setup and command flow. In short, the backend is used to:
-
-- generate synthetic observation data
-- validate and normalize it
-- preprocess time-series features
-- train and evaluate latent-space models
-- generate trajectory-style outputs for exploration
-
-A typical workflow looks like this:
-
-```bash
-python3.11 -m venv backend/.venv
-backend/.venv/bin/python -m pip install -e 'backend[api,parquet,test]'
-source backend/.venv/bin/activate
-psychetrajectory synthetic --output backend/data/simulated-observations.csv --subjects 8 --days 40 --seed 17
-psychetrajectory ingest backend/data/simulated-observations.csv --output backend/data/validated-observations.csv
-psychetrajectory preprocess backend/data/validated-observations.csv --output backend/artifacts/daily-features.jsonl
-```
-
-## Design principles
-
-PsycheTrajectory is built around a few clear principles:
-
-- personal baseline matters more than population averages
-- uncertainty should remain visible
-- interpretation should be reviewed by a person and, when relevant, a clinician
-- context and disagreement are part of the signal, not noise
-- the model should support reflection and treatment conversations, not automate judgment
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for the full terms.
-
-## Important note
-
-This repository is a prototype and concept demonstrator. It is useful for exploring product concepts, research workflows, and interaction design, but it should not be treated as a production mental-health system or clinical platform.
-
-For implementation details and backend-only documentation, please see:
-
-- `backend/README.md`
-- `LOCAL_SETUP.md`
-- `MODEL_CARD.md` (when present in the backend research package)
