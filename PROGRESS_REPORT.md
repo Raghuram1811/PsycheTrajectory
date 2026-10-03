@@ -12,7 +12,8 @@
 This project acknowledges the following contributors and review participants:
 
 - **Venkata Sai Raghuram Gundu** — project lead, concept author, repository owner, and primary technical contributor
-- **SJSU faculty reviewer** — provided early concept feedback and validation participation for the PsycheTrajectory idea, as documented in the attached consent and validation letter from the institution
+- **SJSU faculty reviewer - Dr. Amith Kamath Belman ** — provided early result feedback and validation participation for the PsycheTrajectory idea, as documented in the attached consent and validation letter from the institution
+- **Syracuse faculty reviewer - Prof. Vir Phoha ** — provided early concept feedback and validation participation for the PsycheTrajectory idea. 
 - **Research and design collaborators** — reviewed the conceptual framing around longitudinal wellness trajectory modeling, interpretability, and human-centered assessment
 
 > The attached institutional letter confirms the SJSU faculty reviewer’s consent and participation in the initial concept validation discussions and is treated as supporting evidence for the project’s early research direction.
