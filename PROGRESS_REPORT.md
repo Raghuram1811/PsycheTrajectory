@@ -7,6 +7,18 @@
 
 ---
 
+## Contributors & Concept Validation
+
+This project acknowledges the following contributors and review participants:
+
+- **Venkata Sai Raghuram Gundu** — project lead, concept author, repository owner, and primary technical contributor
+- **SJSU faculty reviewer** — provided early concept feedback and validation participation for the PsycheTrajectory idea, as documented in the attached consent and validation letter from the institution
+- **Research and design collaborators** — reviewed the conceptual framing around longitudinal wellness trajectory modeling, interpretability, and human-centered assessment
+
+> The attached institutional letter confirms the SJSU faculty reviewer’s consent and participation in the initial concept validation discussions and is treated as supporting evidence for the project’s early research direction.
+
+---
+
 ## Executive Summary
 
 PsycheTrajectory is a research prototype that explores how people and psychologists can build shared context about mental wellness changes between therapy sessions. The system turns everyday wellbeing signals (sleep, mood, movement, social connection, mental load) into explainable trajectories while maintaining human judgment at the center of interpretation.
