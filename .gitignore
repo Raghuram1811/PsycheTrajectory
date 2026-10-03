@@ -65,6 +65,8 @@ __pycache__/
 *.mov
 *.avi
 *.webm
+!public/videos/
+!public/videos/psychetrajectory-explained.mp4
 *.sqlite
 *.db
 *.wasm
