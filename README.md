@@ -1,6 +1,6 @@
 # PsycheTrajectory
 
-PsycheTrajectory is a prototype for helping people and clinicians make sense of changing wellbeing patterns between sessions. Instead of treating raw data as a diagnosis, the app frames it as shared context: a trajectory that can be compared against a person's own baseline, checked against lived experience, and discussed in conversation.
+PsycheTrajectory is a prototype for helping people and clinicians make sense of changing wellbeing patterns between sessions. Instead of treating raw data as a diagnosis, the app frames it as shared context for reflection and conversation.
 
 This repository contains both:
 
@@ -35,7 +35,7 @@ Do not use it as:
 - a real-time crisis monitoring system
 - a source of treatment decisions without human oversight
 
-All example data in the repo is synthetic and intentionally non-clinical. The backend README calls this out explicitly: these are simulated trajectories used to exercise software, not actual patient data or evidence of clinical performance.
+All example data in the repo is synthetic and intentionally non-clinical. The backend README calls this out explicitly: these are simulated trajectories used to exercise software, not actual patient data.
 
 ## Repository structure
 
@@ -89,9 +89,13 @@ PsycheTrajectory is built around a few clear principles:
 - context and disagreement are part of the signal, not noise
 - the model should support reflection and treatment conversations, not automate judgment
 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for the full terms.
+
 ## Important note
 
-This repository is a prototype and concept demonstrator. It is useful for exploring product concepts, research workflows, and interaction design, but it should not be treated as a production mental-health system or clinical product without additional validation, governance, and regulatory review.
+This repository is a prototype and concept demonstrator. It is useful for exploring product concepts, research workflows, and interaction design, but it should not be treated as a production mental-health system or clinical platform.
 
 For implementation details and backend-only documentation, please see:
 
