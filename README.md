@@ -8,6 +8,10 @@ The central design question is not simply whether signals changed, but whether a
 
 > **Research prototype:** The simulator uses illustrative scenarios, and the backend's included data is synthetic. Neither is a clinical tool or evidence of clinical validity. Outputs are not diagnoses, and must not guide care.
 
+## Concept video
+
+Watch the short overview: [PsycheTrajectory explained](public/videos/psychetrajectory-explained.mp4).
+
 ## Architecture map
 
 ```mermaid
