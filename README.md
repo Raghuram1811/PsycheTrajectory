@@ -4,6 +4,15 @@ A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
 Drizzle support.
 
+## PsycheTrajectory Research Backend
+
+The Python research pipeline lives in [`backend/`](backend/README.md), alongside
+the existing site. It provides versioned observation adapters, causal daily
+features, a masked PyTorch autoencoder, PCA/direct-feature baselines, a local
+trend Kalman filter, optional independent questionnaire score heads, and a
+synthetic end-to-end CLI demo. Simulated results are plumbing checks only and
+do not establish clinical validity.
+
 ## Prerequisites
 
 - Node.js `>=22.13.0`

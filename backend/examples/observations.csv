@@ -1,0 +1,7 @@
+schema_version,subject_id,event_time_utc,available_at_utc,device,source,signal_name,value,unit,sampling_metadata,quality,context
+observations-v1,sim-001,2026-01-01T08:00:00Z,2026-01-01T08:00:00Z,watch-a,device_summary,heart_rate,68,bpm,"{\"window_seconds\":60}",good,
+observations-v1,sim-001,2026-01-01T08:00:00Z,2026-01-01T08:00:00Z,watch-a,device_summary,steps,4300,count,"{\"period\":\"daily\"}",good,
+observations-v1,sim-001,2026-01-02T08:00:00Z,2026-01-02T08:00:00Z,watch-a,device_summary,heart_rate,71,bpm,"{\"window_seconds\":60}",good,
+observations-v1,sim-001,2026-01-02T08:00:00Z,2026-01-02T08:00:00Z,watch-a,device_summary,steps,3900,count,"{\"period\":\"daily\"}",good,
+observations-v1,sim-001,2026-01-03T08:00:00Z,2026-01-03T08:00:00Z,watch-a,device_summary,heart_rate,69,bpm,"{\"window_seconds\":60}",good,
+observations-v1,sim-001,2026-01-03T08:00:00Z,2026-01-03T08:00:00Z,watch-a,device_summary,steps,5100,count,"{\"period\":\"daily\"}",good,
