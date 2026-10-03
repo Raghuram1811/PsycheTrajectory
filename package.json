@@ -1,5 +1,5 @@
 {
-  "name": "mindtrace-wellness",
+  "name": "psychetrajectory",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -40,5 +40,5 @@
     "wrangler": "4.92.0"
   },
   "type": "module",
-  "displayName": "MindTrace Wellness Simulator"
+  "displayName": "PsycheTrajectory"
 }
