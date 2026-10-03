@@ -1,0 +1,14 @@
+{
+  "schema_version": "daily-v1",
+  "time_unit": "days",
+  "latent_dim": 8,
+  "min_daily_coverage": 0.25,
+  "baseline_min_days": 7,
+  "imputation_max_days": 1,
+  "quality_r_inflation_max": 4.0,
+  "kalman_process_level": 0.02,
+  "kalman_process_velocity": 0.005,
+  "kalman_observation_variance": 0.15,
+  "long_gap_reset_days": 30,
+  "seed": 17
+}

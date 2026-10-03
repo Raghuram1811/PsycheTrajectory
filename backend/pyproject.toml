@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psychetrajectory-backend"
+version = "0.1.0"
+description = "Research pipeline for causal physiological trajectory exploration"
+requires-python = ">=3.11,<3.14"
+dependencies = ["numpy>=1.26,<2", "torch>=2.2"]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.110", "uvicorn>=0.27"]
+parquet = ["pyarrow>=15"]
+test = ["pytest>=8"]
+
+[project.scripts]
+psychetrajectory = "psychetrajectory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
