@@ -27,7 +27,7 @@ const scenarioMeta: Record<ScenarioName, {
 }> = {
   "Steady week": {
     headline: "Your week looks close to baseline.",
-    insight: "Sleep, connection, movement, and check-in mood are moving within Maya’s usual range. No single signal is treated as the answer.",
+    insight: "Sleep, connection, movement, and check-in mood are moving within Srivahni’s usual range. No single signal is treated as the answer.",
     starter: "“What helped this week feel more workable?”",
     consensus: "Fits",
     participantPattern: "“This mostly looks like an ordinary week.”",
@@ -39,7 +39,7 @@ const scenarioMeta: Record<ScenarioName, {
   },
   "Quiet drift": {
     headline: "Your week is asking for attention, not judgment.",
-    insight: "Later, less consistent sleep overlaps with a quieter social rhythm. Maya marked her mood lower on the same days.",
+    insight: "Later, less consistent sleep overlaps with a quieter social rhythm. Srivahni marked her mood lower on the same days.",
     starter: "“What felt different around Wednesday, and what helped, even a little?”",
     consensus: "Mostly fits",
     participantPattern: "“My routine became less steady after Tuesday.”",
@@ -47,11 +47,11 @@ const scenarioMeta: Record<ScenarioName, {
     clinicianTrajectory: "Watchful -9%",
     clinicianConfidence: "Moderate 3 of 5 signals",
     clinicianPrompt: "“You connected the shift to a difficult conversation. What did Thursday’s walk change for you?”",
-    validation: "The claim holds only if Maya’s check-in and the session narrative confirm that the shift mattered.",
+    validation: "The claim holds only if Srivahni’s check-in and the session narrative confirm that the shift mattered.",
   },
   "High strain": {
     headline: "A meaningful shift worth exploring together.",
-    insight: "Mental load is elevated while sleep, movement, and social contact are all below Maya’s baseline. The system should treat this as a question, not a diagnosis.",
+    insight: "Mental load is elevated while sleep, movement, and social contact are all below Srivahni’s baseline. The system should treat this as a question, not a diagnosis.",
     starter: "“What has been carrying the most load this week?”",
     consensus: "Mostly fits",
     participantPattern: "“This was a high-strain week.”",
@@ -63,7 +63,7 @@ const scenarioMeta: Record<ScenarioName, {
   },
   "Signal without meaning": {
     headline: "The signal is loud. The meaning is wrong.",
-    insight: "Passive signals show disrupted sleep, movement, and social contact after travel. Maya marks the interpretation as not fitting: she flew to a funeral, so the shift is contextual grief and logistics, not a hidden deterioration pattern.",
+    insight: "Passive signals show disrupted sleep, movement, and social contact after travel. Srivahni marks the interpretation as not fitting: she flew to a funeral, so the shift is contextual grief and logistics, not a hidden deterioration pattern.",
     starter: "“What did the model miss about why the week changed?”",
     consensus: "Doesn’t fit",
     participantPattern: "“My routine collapsed, but the explanation is wrong.”",
@@ -71,11 +71,11 @@ const scenarioMeta: Record<ScenarioName, {
     clinicianTrajectory: "Flagged, then corrected",
     clinicianConfidence: "Low after context",
     clinicianPrompt: "“What should be excluded from the pattern, and what still needs support?”",
-    validation: "A correct system must absorb the correction: down-weight this week, retain Maya’s context, and avoid treating the funeral week as evidence of the same pattern later.",
+    validation: "A correct system must absorb the correction: down-weight this week, retain Srivahni’s context, and avoid treating the funeral week as evidence of the same pattern later.",
   },
   "Flat physiology, hard week": {
-    headline: "Passive data says steady. Maya says otherwise.",
-    insight: "Sleep, movement, and social contact look normal, so a sensor-only model would miss the week. The concern appears only because Maya’s check-in reports a sharp mood drop.",
+    headline: "Passive data says steady. Srivahni says otherwise.",
+    insight: "Sleep, movement, and social contact look normal, so a sensor-only model would miss the week. The concern appears only because Srivahni’s check-in reports a sharp mood drop.",
     starter: "“What felt worse even though your routine looked normal?”",
     consensus: "Fits",
     participantPattern: "“The data looked fine, but I was not fine.”",
@@ -83,7 +83,7 @@ const scenarioMeta: Record<ScenarioName, {
     clinicianTrajectory: "No passive flag",
     clinicianConfidence: "Low 1 of 5 signals",
     clinicianPrompt: "“What was harder internally, even while the outside routine stayed intact?”",
-    validation: "This is validated against Maya’s check-in and clinical conversation, not passive physiology. The miss should be visible in model review.",
+    validation: "This is validated against Srivahni’s check-in and clinical conversation, not passive physiology. The miss should be visible in model review.",
   },
 };
 
@@ -100,11 +100,11 @@ const walkthroughSteps = [
     time: "00:08",
     label: "Before the session",
     title: "A pattern becomes visible",
-    copy: "Maya notices that sleep timing, connection, and mood shifted together—not just that she had a ‘bad week.’",
+    copy: "Srivahni notices that sleep timing, connection, and mood shifted together—not just that she had a ‘bad week.’",
   },
   {
     time: "00:24",
-    label: "Maya adds context",
+    label: "Srivahni adds context",
     title: "The person completes the picture",
     copy: "She confirms what fits, corrects what does not, and chooses the insights she wants to bring into therapy.",
   },
@@ -112,13 +112,13 @@ const walkthroughSteps = [
     time: "00:43",
     label: "During the session",
     title: "Shared context, deeper conversation",
-    copy: "Dr. Chen starts with Maya’s reflection and the uncertain pattern—leaving more time for meaning, not reconstruction.",
+    copy: "Dr. Chen starts with Srivahni’s reflection and the uncertain pattern—leaving more time for meaning, not reconstruction.",
   },
   {
     time: "01:06",
     label: "After the session",
     title: "A small plan carries forward",
-    copy: "Together they note one protective routine to observe. The model learns only from feedback Maya has consented to share.",
+    copy: "Together they note one protective routine to observe. The model learns only from feedback Srivahni has consented to share.",
   },
 ];
 
@@ -227,9 +227,9 @@ export default function Home() {
             <header className="preview-header">
               <div>
                 <span className="mini-label">THIS WEEK · AUG 3–9</span>
-                <h3>Good morning, Maya</h3>
+                <h3>Good morning, Srivahni</h3>
               </div>
-              <div className="avatar">M</div>
+              <div className="avatar">S</div>
             </header>
             <div className="state-summary">
               <div className="score-ring" style={{ "--score": "62", "--ring": "#e18745" } as React.CSSProperties}>
@@ -364,11 +364,11 @@ export default function Home() {
         </div>
         <div className="consensus-board">
           <article className="view-card participant-card">
-            <header><div className="avatar warm">M</div><div><small>PARTICIPANT</small><h3>Maya’s view</h3></div><span>Private until shared</span></header>
+            <header><div className="avatar warm">S</div><div><small>PARTICIPANT</small><h3>Srivahni’s view</h3></div><span>Private until shared</span></header>
             <div className="view-body">
               <span className="card-kicker">PROPOSED PATTERN</span>
               <h4>{activeMeta.participantPattern}</h4>
-              <p>{activePreset === "Signal without meaning" ? "The system noticed a hard passive-signal deviation, then Maya rejected the proposed meaning." : activePreset === "Flat physiology, hard week" ? "The system did not see a passive-signal shift. Maya’s check-in is the alert." : "The system noticed later sleep, lower movement, and fewer social moments."}</p>
+              <p>{activePreset === "Signal without meaning" ? "The system noticed a hard passive-signal deviation, then Srivahni rejected the proposed meaning." : activePreset === "Flat physiology, hard week" ? "The system did not see a passive-signal shift. Srivahni’s check-in is the alert." : "The system noticed later sleep, lower movement, and fewer social moments."}</p>
               <div className="feedback-options" role="group" aria-label="Does this insight fit?">
                 {["Fits", "Mostly fits", "Doesn’t fit"].map(choice => <button key={choice} className={consensusChoice === choice ? "active" : ""} onClick={() => setConsensusChoice(choice)}>{choice === "Fits" ? "✓" : choice === "Mostly fits" ? "~" : "×"} {choice}</button>)}
               </div>
@@ -383,7 +383,7 @@ export default function Home() {
           </div>
 
           <article className="view-card clinician-card">
-            <header><div className="avatar clinician">DC</div><div><small>PSYCHOLOGIST</small><h3>Dr. Chen’s view</h3></div><span>With Maya’s consent</span></header>
+            <header><div className="avatar clinician">DC</div><div><small>PSYCHOLOGIST</small><h3>Dr. Chen’s view</h3></div><span>With Srivahni’s consent</span></header>
             <div className="view-body">
               <div className="clinician-row"><span>TRAJECTORY</span><b>{activeMeta.clinicianTrajectory}</b></div>
               <div className="clinician-row"><span>CONFIDENCE</span><b>{activeMeta.clinicianConfidence}</b></div>
@@ -395,7 +395,7 @@ export default function Home() {
             </div>
           </article>
         </div>
-        <p className="consensus-caption"><span>✦</span> The shared view preserves disagreement: <b>Maya’s correction is data, not noise.</b></p>
+        <p className="consensus-caption"><span>✦</span> The shared view preserves disagreement: <b>Srivahni’s correction is data, not noise.</b></p>
       </section>
 
       <section className="walkthrough-section" id="walkthrough">
@@ -424,10 +424,10 @@ export default function Home() {
               <div className="scene-card context-scene"><span className="scene-chip">Mostly fits</span><h4>What was happening?</h4><p>“A difficult conversation at work changed my rhythm…”</p><div className="share-row"><span>✓ Share with Dr. Chen</span><b>Selected</b></div></div>
             )}
             {walkthroughStep === 2 && (
-              <div className="therapy-scene"><div className="person person-one"><span>M</span></div><div className="session-screen"><small>SHARED FOR TODAY</small><b>What changed around Wednesday?</b><div className="session-wave"><i /><i /><i /><i /><i /></div></div><div className="person person-two"><span>DC</span></div></div>
+              <div className="therapy-scene"><div className="person person-one"><span>S</span></div><div className="session-screen"><small>SHARED FOR TODAY</small><b>What changed around Wednesday?</b><div className="session-wave"><i /><i /><i /><i /><i /></div></div><div className="person person-two"><span>DC</span></div></div>
             )}
             {walkthroughStep === 3 && (
-              <div className="scene-card plan-scene"><span className="plan-check">✓</span><small>ONE THING TO CARRY FORWARD</small><h4>Notice what changes after an evening walk.</h4><div><span>Observe for 7 days</span><span>Maya controls sharing</span></div></div>
+              <div className="scene-card plan-scene"><span className="plan-check">✓</span><small>ONE THING TO CARRY FORWARD</small><h4>Notice what changes after an evening walk.</h4><div><span>Observe for 7 days</span><span>Srivahni controls sharing</span></div></div>
             )}
             <div className="film-caption"><small>{walkthroughSteps[walkthroughStep].label}</small><h3>{walkthroughSteps[walkthroughStep].title}</h3><p>{walkthroughSteps[walkthroughStep].copy}</p></div>
           </div>
