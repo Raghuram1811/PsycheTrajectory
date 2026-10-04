@@ -1,0 +1,49 @@
+{
+  "dataset_fingerprint": "30f7eaa5bd6b175e7e0cd0ae068ca8d31f18718bf7e9abb31d79ce1f914c2d37",
+  "subjects": 8,
+  "rows": 1696,
+  "status": "participant_held_out_reconstruction_only",
+  "reconstruction": {
+    "autoencoder_observed_rmse": 0.24415096076922752,
+    "pca_observed_rmse": 3.8224654755316176e-16,
+    "test_rows": 81,
+    "test_subjects": [
+      "sim-006",
+      "sim-004"
+    ],
+    "training_subjects": [
+      "sim-002",
+      "sim-001",
+      "sim-007",
+      "sim-005"
+    ],
+    "encoder_version": "masked-ae-v1"
+  },
+  "held_out_symptom_metrics": "unavailable without supported real labels",
+  "clinical_validity": "not established",
+  "device_population_shift": "not assessed",
+  "trajectory_diagnostics": {
+    "autoencoder_kalman": {
+      "innovations": 78,
+      "coverage_95": 0.9102564102564102,
+      "chi_square_95_threshold": 15.507313,
+      "mean_mahalanobis": 7.163700515060753,
+      "mean_abs_lag1_autocorrelation": 0.1611279580732442,
+      "innovation_rmse": 2.9031695868121767
+    },
+    "pca_kalman": {
+      "innovations": 78,
+      "coverage_95": 0.9358974358974359,
+      "chi_square_95_threshold": 15.507313,
+      "mean_mahalanobis": 6.322245508753914,
+      "mean_abs_lag1_autocorrelation": 0.2098650737100339,
+      "innovation_rmse": 2.6959417935401393
+    },
+    "raw_embedding_one_step_rmse": 1.1461946964263916,
+    "exponential_smoothing_one_step_rmse_alpha_0_25": 0.863322377204895,
+    "response_lag": "not estimated; no independent known latent trajectory in this dataset",
+    "comparison_note": "PCA and autoencoder coordinates are distinct; results are descriptive and do not establish a winner or clinical validity."
+  },
+  "input_coverage_rate": 0.9876543209876543,
+  "simulated_data_only": true
+}
