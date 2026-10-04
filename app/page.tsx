@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 type SignalKey = "sleep" | "load" | "connection" | "movement" | "mood";
 type ScenarioName = "Steady week" | "Quiet drift" | "High strain" | "Signal without meaning" | "Flat physiology, hard week";
@@ -122,6 +122,43 @@ const walkthroughSteps = [
   },
 ];
 
+const benchmarkMetrics = [
+  {
+    label: "Cognitive-load detection",
+    unit: "AUC",
+    baseline: 0.64,
+    existing: 0.71,
+    psyche: 0.82,
+  },
+  {
+    label: "Context-corrected alerts",
+    unit: "Precision",
+    baseline: 0.46,
+    existing: 0.58,
+    psyche: 0.76,
+  },
+  {
+    label: "Meaningful shift recall",
+    unit: "Session utility",
+    baseline: 0.39,
+    existing: 0.53,
+    psyche: 0.73,
+  },
+];
+
+const evaluationDatasets = [
+  {
+    name: "CogWear",
+    source: "Consumer-grade wearables",
+    detail: "Baseline vs Stroop cognitive-load tasks with smartwatch, E4, and EEG signals.",
+  },
+  {
+    name: "mcPHASES",
+    source: "Wearables + self-report",
+    detail: "Longitudinal Fitbit, symptoms, hormones, sleep, activity, and stress tables.",
+  },
+];
+
 function Sparkline({ values, tone = "teal" }: { values: number[]; tone?: "teal" | "coral" }) {
   const points = values.map((value, index) => `${(index / (values.length - 1)) * 100},${100 - value}`).join(" ");
   return (
@@ -146,22 +183,7 @@ export default function Home() {
   const [activePreset, setActivePreset] = useState<ScenarioName>("Quiet drift");
   const [perspective, setPerspective] = useState<"participant" | "psychologist">("participant");
   const [walkthroughStep, setWalkthroughStep] = useState(0);
-  const [walkthroughPlaying, setWalkthroughPlaying] = useState(false);
   const [consensusChoice, setConsensusChoice] = useState("Mostly fits");
-
-  useEffect(() => {
-    if (!walkthroughPlaying) return;
-    const timer = window.setInterval(() => {
-      setWalkthroughStep(current => {
-        if (current === walkthroughSteps.length - 1) {
-          setWalkthroughPlaying(false);
-          return 0;
-        }
-        return current + 1;
-      });
-    }, 3600);
-    return () => window.clearInterval(timer);
-  }, [walkthroughPlaying]);
 
   const state = useMemo(() => {
     if (activePreset === "Signal without meaning") {
@@ -197,6 +219,7 @@ export default function Home() {
         <div className="nav-links">
           <a href="#simulator">Simulator</a>
           <a href="#approach">How it works</a>
+          <a href="#metrics">Metrics</a>
           <a href="#walkthrough">Session walkthrough</a>
         </div>
         <a className="nav-cta" href="#simulator">Try the demo <span>↗</span></a>
@@ -398,14 +421,62 @@ export default function Home() {
         <p className="consensus-caption"><span>✦</span> The shared view preserves disagreement: <b>Srivahni’s correction is data, not noise.</b></p>
       </section>
 
+      <section className="metrics-section" id="metrics">
+        <div className="section-heading metrics-heading">
+          <div><span className="section-index">04 / OUTPUT METRICS</span><h2>What improves<br />against today’s options.</h2></div>
+          <p>Quick prototype comparison for the pitch: wearable-only baselines show signal, self-report adds context, and PsycheTrajectory aims to preserve both while making uncertainty and human correction visible.</p>
+        </div>
+
+        <div className="metrics-shell">
+          <div className="metric-bars" aria-label="Prototype benchmark comparison">
+            {benchmarkMetrics.map(metric => (
+              <article key={metric.label} className="metric-card">
+                <header><span>{metric.unit}</span><h3>{metric.label}</h3></header>
+                <div className="bar-stack">
+                  {[
+                    ["Wearable only", metric.baseline, "baseline"],
+                    ["Existing multimodal", metric.existing, "existing"],
+                    ["PsycheTrajectory", metric.psyche, "psyche"],
+                  ].map(([label, value, tone]) => (
+                    <div className="metric-row" key={label as string}>
+                      <div><span>{label}</span><b>{Math.round((value as number) * 100)}%</b></div>
+                      <i className={`bar-fill ${tone}`} style={{ "--bar": `${(value as number) * 100}%` } as React.CSSProperties} />
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <aside className="metrics-summary">
+            <span className="card-kicker">EVALUATION PLAN</span>
+            <h3>Use public structure, then validate on your authorized data.</h3>
+            <div className="target-curve">
+              <div className="chart-meta"><span>Expected lift after context correction</span><strong>+18 pts</strong></div>
+              <Sparkline values={[39, 44, 51, 58, 64, 69, 73]} tone="teal" />
+            </div>
+            <div className="dataset-list">
+              {evaluationDatasets.map(dataset => (
+                <div key={dataset.name}>
+                  <b>{dataset.name}</b>
+                  <span>{dataset.source}</span>
+                  <p>{dataset.detail}</p>
+                </div>
+              ))}
+            </div>
+            <p className="metric-disclaimer">Numbers are benchmark targets for the simulator page, not completed clinical validation.</p>
+          </aside>
+        </div>
+      </section>
+
       <section className="walkthrough-section" id="walkthrough">
         <div className="walkthrough-copy">
-          <span className="section-index">04 / SESSION WALKTHROUGH</span>
+          <span className="section-index">05 / SESSION WALKTHROUGH</span>
           <h2>More time for<br /><em>meaning.</em></h2>
           <p>A short concept walkthrough of how PsycheTrajectory can augment—not replace—the therapeutic relationship.</p>
           <div className="step-list">
             {walkthroughSteps.map((step, index) => (
-              <button key={step.label} className={walkthroughStep === index ? "active" : ""} onClick={() => { setWalkthroughStep(index); setWalkthroughPlaying(false); }}>
+              <button key={step.label} className={walkthroughStep === index ? "active" : ""} onClick={() => setWalkthroughStep(index)}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <div><b>{step.label}</b><small>{step.title}</small></div>
               </button>
@@ -414,27 +485,19 @@ export default function Home() {
         </div>
 
         <div className="concept-film">
-          <div className="film-top"><span>PSYCHETRAJECTORY · CONCEPT FILM</span><span>{walkthroughSteps[walkthroughStep].time} / 01:12</span></div>
-          <div className={`film-stage scene-${walkthroughStep}`}>
-            <div className="film-glow" />
-            {walkthroughStep === 0 && (
-              <div className="scene-card phone-scene"><div className="phone-notch" /><small>YOUR WEEK</small><div className="scene-score">62</div><b>A shift worth noticing</b><span className="micro-line long" /><span className="micro-line" /><div className="tiny-chart"><i /><i /><i /><i /><i /><i /></div></div>
-            )}
-            {walkthroughStep === 1 && (
-              <div className="scene-card context-scene"><span className="scene-chip">Mostly fits</span><h4>What was happening?</h4><p>“A difficult conversation at work changed my rhythm…”</p><div className="share-row"><span>✓ Share with Dr. Chen</span><b>Selected</b></div></div>
-            )}
-            {walkthroughStep === 2 && (
-              <div className="therapy-scene"><div className="person person-one"><span>S</span></div><div className="session-screen"><small>SHARED FOR TODAY</small><b>What changed around Wednesday?</b><div className="session-wave"><i /><i /><i /><i /><i /></div></div><div className="person person-two"><span>DC</span></div></div>
-            )}
-            {walkthroughStep === 3 && (
-              <div className="scene-card plan-scene"><span className="plan-check">✓</span><small>ONE THING TO CARRY FORWARD</small><h4>Notice what changes after an evening walk.</h4><div><span>Observe for 7 days</span><span>Srivahni controls sharing</span></div></div>
-            )}
-            <div className="film-caption"><small>{walkthroughSteps[walkthroughStep].label}</small><h3>{walkthroughSteps[walkthroughStep].title}</h3><p>{walkthroughSteps[walkthroughStep].copy}</p></div>
+          <div className="film-top"><span>PSYCHETRAJECTORY · EXPLAINED</span><span>{walkthroughSteps[walkthroughStep].time} / 01:12</span></div>
+          <div className="video-stage">
+            <video className="walkthrough-video" controls preload="metadata" playsInline>
+              <source src="/videos/psychetrajectory-explained.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-          <div className="film-controls">
-            <button className="film-play" onClick={() => setWalkthroughPlaying(value => !value)} aria-label={walkthroughPlaying ? "Pause walkthrough" : "Play walkthrough"}>{walkthroughPlaying ? "Ⅱ" : "▶"}</button>
-            <div className="film-progress"><span style={{ width: `${((walkthroughStep + 1) / walkthroughSteps.length) * 100}%` }} /></div>
-            <span>{walkthroughPlaying ? "PLAYING" : "PAUSED"}</span>
+          <div className="video-caption-strip">
+            <small>{walkthroughSteps[walkthroughStep].label}</small>
+            <div>
+              <h3>{walkthroughSteps[walkthroughStep].title}</h3>
+              <p>{walkthroughSteps[walkthroughStep].copy}</p>
+            </div>
           </div>
         </div>
       </section>

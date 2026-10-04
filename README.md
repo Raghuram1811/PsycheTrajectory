@@ -8,6 +8,31 @@ The central design question is not simply whether signals changed, but whether a
 
 > **Research prototype:** The simulator uses illustrative scenarios, and the backend's included data is synthetic. Neither is a clinical tool or evidence of clinical validity. Outputs are not diagnoses, and must not guide care.
 
+## Concept video
+
+Watch the short overview: [PsycheTrajectory explained](public/videos/psychetrajectory-explained.mp4).
+
+## Datasets and prototype results
+
+The landing page includes a simple output-metrics panel comparing wearable-only baselines, existing multimodal approaches, and the intended PsycheTrajectory approach. These are **prototype benchmark targets shown in the simulator**, not completed clinical validation results.
+
+### Dataset sources
+
+| Dataset | Access | What it contributes | PsycheTrajectory use |
+| --- | --- | --- | --- |
+| [CogWear: Can we detect cognitive effort with consumer-grade wearables?](https://physionet.org/content/consumer-grade-wearables/1.0.0/) | Open access | Baseline and Stroop cognitive-load tasks from 24 volunteers across pilot and survey-gamification studies, with Empatica E4, Samsung Galaxy Watch4, and Muse S signals. | Tests whether consumer wearable signals can detect short-term cognitive load and distinguish baseline from demand. |
+| [mcPHASES: Physiological, Hormonal, and Self-reported Events and Symptoms for Menstrual Health Tracking with Wearables](https://physionet.org/content/mcphases/1.0.0/) | Restricted PhysioNet access | Longitudinal wearable, hormone, glucose, symptom, sleep, activity, stress, and self-report tables from 42 participants across two 3-month collection periods. | Tests whether longitudinal context and self-report improve interpretation beyond passive physiology alone. |
+
+### Landing-page comparison targets
+
+| Metric shown on landing page | Wearable-only baseline | Existing multimodal | PsycheTrajectory target |
+| --- | ---: | ---: | ---: |
+| Cognitive-load detection AUC | 64% | 71% | 82% |
+| Context-corrected alert precision | 46% | 58% | 76% |
+| Meaningful shift recall / session utility | 39% | 53% | 73% |
+
+The intended evaluation is to map CogWear task labels and mcPHASES longitudinal self-report/hormone context into a shared benchmark: passive signals first, then multimodal signals, then PsycheTrajectory-style personal-baseline and human-correction logic.
+
 ## Architecture map
 
 ```mermaid
