@@ -122,6 +122,43 @@ const walkthroughSteps = [
   },
 ];
 
+const benchmarkMetrics = [
+  {
+    label: "Cognitive-load detection",
+    unit: "AUC",
+    baseline: 0.64,
+    existing: 0.71,
+    psyche: 0.82,
+  },
+  {
+    label: "Context-corrected alerts",
+    unit: "Precision",
+    baseline: 0.46,
+    existing: 0.58,
+    psyche: 0.76,
+  },
+  {
+    label: "Meaningful shift recall",
+    unit: "Session utility",
+    baseline: 0.39,
+    existing: 0.53,
+    psyche: 0.73,
+  },
+];
+
+const evaluationDatasets = [
+  {
+    name: "CogWear",
+    source: "Consumer-grade wearables",
+    detail: "Baseline vs Stroop cognitive-load tasks with smartwatch, E4, and EEG signals.",
+  },
+  {
+    name: "mcPHASES",
+    source: "Wearables + self-report",
+    detail: "Longitudinal Fitbit, symptoms, hormones, sleep, activity, and stress tables.",
+  },
+];
+
 function Sparkline({ values, tone = "teal" }: { values: number[]; tone?: "teal" | "coral" }) {
   const points = values.map((value, index) => `${(index / (values.length - 1)) * 100},${100 - value}`).join(" ");
   return (
@@ -182,6 +219,7 @@ export default function Home() {
         <div className="nav-links">
           <a href="#simulator">Simulator</a>
           <a href="#approach">How it works</a>
+          <a href="#metrics">Metrics</a>
           <a href="#walkthrough">Session walkthrough</a>
         </div>
         <a className="nav-cta" href="#simulator">Try the demo <span>↗</span></a>
@@ -383,9 +421,57 @@ export default function Home() {
         <p className="consensus-caption"><span>✦</span> The shared view preserves disagreement: <b>Srivahni’s correction is data, not noise.</b></p>
       </section>
 
+      <section className="metrics-section" id="metrics">
+        <div className="section-heading metrics-heading">
+          <div><span className="section-index">04 / OUTPUT METRICS</span><h2>What improves<br />against today’s options.</h2></div>
+          <p>Quick prototype comparison for the pitch: wearable-only baselines show signal, self-report adds context, and PsycheTrajectory aims to preserve both while making uncertainty and human correction visible.</p>
+        </div>
+
+        <div className="metrics-shell">
+          <div className="metric-bars" aria-label="Prototype benchmark comparison">
+            {benchmarkMetrics.map(metric => (
+              <article key={metric.label} className="metric-card">
+                <header><span>{metric.unit}</span><h3>{metric.label}</h3></header>
+                <div className="bar-stack">
+                  {[
+                    ["Wearable only", metric.baseline, "baseline"],
+                    ["Existing multimodal", metric.existing, "existing"],
+                    ["PsycheTrajectory", metric.psyche, "psyche"],
+                  ].map(([label, value, tone]) => (
+                    <div className="metric-row" key={label as string}>
+                      <div><span>{label}</span><b>{Math.round((value as number) * 100)}%</b></div>
+                      <i className={`bar-fill ${tone}`} style={{ "--bar": `${(value as number) * 100}%` } as React.CSSProperties} />
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <aside className="metrics-summary">
+            <span className="card-kicker">EVALUATION PLAN</span>
+            <h3>Use public structure, then validate on your authorized data.</h3>
+            <div className="target-curve">
+              <div className="chart-meta"><span>Expected lift after context correction</span><strong>+18 pts</strong></div>
+              <Sparkline values={[39, 44, 51, 58, 64, 69, 73]} tone="teal" />
+            </div>
+            <div className="dataset-list">
+              {evaluationDatasets.map(dataset => (
+                <div key={dataset.name}>
+                  <b>{dataset.name}</b>
+                  <span>{dataset.source}</span>
+                  <p>{dataset.detail}</p>
+                </div>
+              ))}
+            </div>
+            <p className="metric-disclaimer">Numbers are benchmark targets for the simulator page, not completed clinical validation.</p>
+          </aside>
+        </div>
+      </section>
+
       <section className="walkthrough-section" id="walkthrough">
         <div className="walkthrough-copy">
-          <span className="section-index">04 / SESSION WALKTHROUGH</span>
+          <span className="section-index">05 / SESSION WALKTHROUGH</span>
           <h2>More time for<br /><em>meaning.</em></h2>
           <p>A short concept walkthrough of how PsycheTrajectory can augment—not replace—the therapeutic relationship.</p>
           <div className="step-list">
