@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/psyche-logo.png" alt="PsycheTrajectory logo" width="600">
-</p>
-
 # PsycheTrajectory
 
 **See the pattern. Hear the person.**
