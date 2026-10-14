@@ -1,5 +1,9 @@
 # PsycheTrajectory
 
+<p align="center">
+  <img src="public/psyche-logo.png" alt="PsycheTrajectory logo" width="720" />
+</p>
+
 **See the pattern. Hear the person.**
 
 PsycheTrajectory explores how people and psychologists might build shared context about changes between sessions. The repository contains an interactive concept simulator and a separate experimental Python research pipeline for exploring physiological trajectories.

@@ -54,6 +54,7 @@ __pycache__/
 *.rar
 *.pdf
 *.png
+!public/psyche-logo.png
 *.jpg
 *.jpeg
 *.gif
