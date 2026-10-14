@@ -1,12 +1,16 @@
+<p align="center">
+  <img src="assets/psyche-logo.png" alt="PsycheTrajectory logo" width="600">
+</p>
+
 # PsycheTrajectory
 
 **See the pattern. Hear the person.**
 
-PsycheTrajectory explores how people and psychologists might build shared context about changes between sessions. The repository contains an interactive concept simulator and a separate experimental Python research pipeline for exploring physiological trajectories.
+PsycheTrajectory explores how people and psychologists might build shared context about changes between sessions. The repository contains an interactive concept simulator and a separate experimenta[...] 
 
-The central design question is not simply whether signals changed, but whether an interpretation fits the person's experience. Try **Signal without meaning** to see a routine shift corrected by context, or **Flat physiology, hard week** to see how passive signals can miss a person's own report.
+The central design question is not simply whether signals changed, but whether an interpretation fits the person's experience. Try **Signal without meaning** to see a routine shift corrected by con[...]
 
-> **Research prototype:** The simulator uses illustrative scenarios, and the backend's included data is synthetic. Neither is a clinical tool or evidence of clinical validity. Outputs are not diagnoses, and must not guide care.
+> **Research prototype:** The simulator uses illustrative scenarios, and the backend's included data is synthetic. Neither is a clinical tool or evidence of clinical validity. Outputs are not diagn[...]
 
 ## Concept video
 
@@ -14,14 +18,14 @@ Watch the short overview: [PsycheTrajectory explained](public/videos/psychetraje
 
 ## Datasets and prototype results
 
-The landing page includes a simple output-metrics panel comparing wearable-only baselines, existing multimodal approaches, and the intended PsycheTrajectory approach. These are **prototype benchmark targets shown in the simulator**, not completed clinical validation results.
+The landing page includes a simple output-metrics panel comparing wearable-only baselines, existing multimodal approaches, and the intended PsycheTrajectory approach. These are **prototype benchma[...]
 
 ### Dataset sources
 
 | Dataset | Access | What it contributes | PsycheTrajectory use |
 | --- | --- | --- | --- |
-| [CogWear: Can we detect cognitive effort with consumer-grade wearables?](https://physionet.org/content/consumer-grade-wearables/1.0.0/) | Open access | Baseline and Stroop cognitive-load tasks from 24 volunteers across pilot and survey-gamification studies, with Empatica E4, Samsung Galaxy Watch4, and Muse S signals. | Tests whether consumer wearable signals can detect short-term cognitive load and distinguish baseline from demand. |
-| [mcPHASES: Physiological, Hormonal, and Self-reported Events and Symptoms for Menstrual Health Tracking with Wearables](https://physionet.org/content/mcphases/1.0.0/) | Restricted PhysioNet access | Longitudinal wearable, hormone, glucose, symptom, sleep, activity, stress, and self-report tables from 42 participants across two 3-month collection periods. | Tests whether longitudinal context and self-report improve interpretation beyond passive physiology alone. |
+| [CogWear: Can we detect cognitive effort with consumer-grade wearables?](https://physionet.org/content/consumer-grade-wearables/1.0.0/) | Open access | Baseline and Stroop cognitive-load tasks f[...]
+| [mcPHASES: Physiological, Hormonal, and Self-reported Events and Symptoms for Menstrual Health Tracking with Wearables](https://physionet.org/content/mcphases/1.0.0/) | Restricted PhysioNet acce[...]
 
 ### Landing-page comparison targets
 
@@ -31,7 +35,7 @@ The landing page includes a simple output-metrics panel comparing wearable-only 
 | Context-corrected alert precision | 46% | 58% | 76% |
 | Meaningful shift recall / session utility | 39% | 53% | 73% |
 
-The intended evaluation is to map CogWear task labels and mcPHASES longitudinal self-report/hormone context into a shared benchmark: passive signals first, then multimodal signals, then PsycheTrajectory-style personal-baseline and human-correction logic.
+The intended evaluation is to map CogWear task labels and mcPHASES longitudinal self-report/hormone context into a shared benchmark: passive signals first, then multimodal signals, then PsycheTraj[...]
 
 ## Architecture map
 
@@ -141,7 +145,7 @@ Then open the local app in the browser and explore the simulator scenarios and n
 
 ## Backend usage
 
-The backend is intended for generating and testing the research pipeline. The project includes a CLI workflow for synthetic data generation, validation, feature extraction, model training, and evaluation.
+The backend is intended for generating and testing the research pipeline. The project includes a CLI workflow for synthetic data generation, validation, feature extraction, model training, and ev[...]
 
 See `backend/README.md` for the full setup and command flow. In short, the backend is used to:
 
@@ -178,7 +182,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Important note
 
-This repository is a prototype and concept demonstrator. It is useful for exploring product concepts, research workflows, and interaction design, but it should not be treated as a production mental-health system or clinical platform.
+This repository is a prototype and concept demonstrator. It is useful for exploring product concepts, research workflows, and interaction design, but it should not be treated as a production ment[...]
 
 For implementation details and backend-only documentation, please see:
 
